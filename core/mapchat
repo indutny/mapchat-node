@@ -9,6 +9,7 @@ var server = connect.createServer(
   connect.bodyDecoder(),
   connect.format(),
   connect.compiler(),
+  connect.session(),
   connect.router(route_user)
   connect.router(route_api)
 );
