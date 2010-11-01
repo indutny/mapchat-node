@@ -4,12 +4,17 @@ var connect = require('connect'),
     io = require('socket.io'),
     route_api = require('./lib/routes/api'),
     route_user = require('./lib/routes/user');
-    
+
 var server = connect.createServer(
   connect.bodyDecoder(),
-  connect.format(),
-  connect.compiler(),
+  connect.cookieDecoder(),
+  connect.methodOverride(),
+  connect.compiler({src: __dirname + '/../pub', enable: ['less'] }),
   connect.session(),
-  connect.router(route_user)
-  connect.router(route_api)
+  connect.router(route_user),
+  connect.router(route_api),
+  connect.cache(),
+  connect.staticProvider(__dirname + '/../pub')
 );
+
+server.listen(8080);
