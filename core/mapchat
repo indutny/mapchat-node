@@ -2,6 +2,10 @@
 
 var connect = require('connect'),
     io = require('socket.io'),
+    db = new (require('./lib/db/mongodb'))({
+      server: '127.0.0.1',
+      port: 27017
+    }),
     route_api = require('./lib/routes/api'),
     route_user = require('./lib/routes/user');
 
@@ -11,8 +15,8 @@ var server = connect.createServer(
   connect.methodOverride(),
   connect.compiler({src: __dirname + '/../pub', enable: ['less'] }),
   connect.session(),
-  connect.router(route_user),
-  connect.router(route_api),
+  connect.router(route_user(db)),
+  connect.router(route_api(db)),
   connect.cache(),
   connect.staticProvider(__dirname + '/../pub')
 );
