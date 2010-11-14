@@ -7,13 +7,13 @@ var argv = require('optimist').argv,
     loader = require('./lib/loader');
     
 function init(db) {
-  var models = loader(__dirname + '/models', {
+  var modules = loader(__dirname + '/modules', {
                  db: db,
-                 models: '?'
+                 modules: '?'
                }),
       routes = {};
   
-  routes = loader.invokeForArray(models, 'routes');
+  routes = loader.invokeForArray(modules, 'routes');
   
   server(routes);
 }
