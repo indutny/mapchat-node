@@ -1,1 +1,0 @@
-module.exports = function(db) {  return function(app) {    // Create user    app.put('/api/v1/user', function(req, res) {    });        // Login    app.post('/api/v1/user/:name', function(req, res) {          });        // Logout    app.delete('/api/v1/user/:name', function(req, res) {    });  };};

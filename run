@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var argv = require('optimist').argv,
+    env = argv.env ? '.' + argv.env : '',
+    server = require('./config/server' + env)
+    db = require('./config/db' + env),
+    loader = require('./lib/loader');
+    
+function init(db) {
+  var models = loader(__dirname + '/models', {
+                 db: db,
+                 models: '?'
+               }),
+      routes = {};
+  
+  routes = loader.invokeForArray(models, 'routes');
+  
+  server(routes);
+}
+
+db(init);
