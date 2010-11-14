@@ -2,7 +2,7 @@
 
 var argv = require('optimist').argv,
     env = argv.env ? '.' + argv.env : '',
-    server = require('./config/server' + env)
+    server = require('./config/server' + env),
     db = require('./config/db' + env),
     loader = require('./lib/loader');
     
