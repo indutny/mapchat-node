@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="http://cdn.socket.io/stable/socket.io.js"></script>
     <title>MapChat</title>
   </head>
   <body>
+    <script>
+      /**
+      * Just for test purposes
+      */
+      socket = new io.Socket('localhost');
+      socket.connect();
+    </script>
   </body>
 </html>
