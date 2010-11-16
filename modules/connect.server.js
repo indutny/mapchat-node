@@ -10,7 +10,7 @@
 /**
 * .init() callback
 */
-exports.init = function() {  
+exports.init = function() {    
   var connect = require('connect'),
       middleware = invoke('middleware', connect).array;
                    

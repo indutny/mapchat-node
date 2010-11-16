@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+require.paths.unshift('lib');
+require.paths.unshift('lib/connect/lib');
+
 var argv = require('optimist').argv,
     env = argv.env ? '.' + argv.env : '',
     db = require('./config/db' + env),

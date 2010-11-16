@@ -1,0 +1,12 @@
+[submodule "lib/mongoose"]
+	path = lib/mongoose
+	url = git://github.com/LearnBoost/mongoose.git
+[submodule "lib/socket.io"]
+	path = lib/socket.io
+	url = git://github.com/LearnBoost/Socket.IO-node.git
+[submodule "lib/connect"]
+	path = lib/connect
+	url = git://github.com/senchalabs/connect.git
+[submodule "lib/optimist"]
+	path = lib/optimist
+	url = git://github.com/substack/node-optimist.git
