@@ -16,7 +16,10 @@ exports.init = function() {
                    
   middleware.unshift(connect.errorHandler());
   
-  connect.createServer.apply(connect, middleware).listen(8080);
+  var server = connect.createServer.apply(connect, middleware);
+  server.listen(8080, function() {
+    invoke('onServerListening', server);
+  });
 }
 
 /**

@@ -10,6 +10,11 @@ var argv = require('optimist').argv,
     
 function init(db) {
   return loader(__dirname + '/modules', {
+                  console: console,
+                  setTimeout: setTimeout,
+                  setInterval: setInterval,
+                  clearTimeout: clearTimeout,
+                  clearIntevral: clearInterval,
                   db: db,
                   modules: '?'
                 });
