@@ -6,7 +6,7 @@ exports.routes = function(app) {
   var Point = db.models.Point;
   
   // Create
-  app.put('/point', function(req, res, next) {
+  app.post('/point', function(req, res, next) {
     var point = new Point();
     
     // Get field from POST data
@@ -25,7 +25,7 @@ exports.routes = function(app) {
   });
   
   // Update
-  app.post('/point/:id', function(req, res, next) {
+  app.put('/point/:id', function(req, res, next) {
     var point = Point.find({_id: req.params.id}).first(function(point) {      
       if (!point) return next();
       // Get point from POST data
