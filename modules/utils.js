@@ -11,17 +11,16 @@ var Buffer = require('buffer').Buffer;
 */
 exports.middleware = function(connect) {
   return function(req, res, next) {
-    function __out(mime, str) {
-      res.writeHead(200, {
+    function __out(mime, str, code) {
+      res.writeHead(code || 200, {
         'Content-Type': mime,
         'Content-Length': Buffer.byteLength(str)
       });
       res.end(str);
     }
     
-    res.json = function(obj, converted) {
-      __out('application/json', converted ? (obj || '').toString() :
-                                            JSON.stringify(obj) || '');
+    res.json = function(obj, error) {
+      __out('application/json', JSON.stringify(obj), error && 403);
     }
     
     res.html = function(value) {
