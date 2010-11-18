@@ -7,3 +7,6 @@
 [submodule "lib/optimist"]
 	path = lib/optimist
 	url = git://github.com/substack/node-optimist.git
+[submodule "lib/mongoose"]
+	path = lib/mongoose
+	url = git://github.com/LearnBoost/mongoose.git
